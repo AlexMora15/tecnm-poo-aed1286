@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using Hito2_HerenciaPolimorfismo;
 
 Console.WriteLine("=================================================");
-Console.WriteLine("   TEST HARNESS - HITO 2: POO (AED-1286)         ");
-Console.WriteLine("   Herencia, Clases Abstractas e Interfaces      ");
+Console.WriteLine("   PROGRAMACION ORIENTADA A OBJETOS (AED-1286)   ");
+Console.WriteLine("   HITO 2: HERENCIA, ABS Y INTERFACES           ");
+Console.WriteLine("   Alumno: Alejandro Mora San Juan               ");
+Console.WriteLine("   ID: 23531081                                  ");
 Console.WriteLine("=================================================\n");
 
 int fallos = 0;
@@ -22,11 +24,11 @@ try
     if (Math.Abs(r.CalcularArea() - 24.0) > 0.001)
         throw new Exception("Calculo incorrecto en area de Rectangulo.");
 
-    Console.WriteLine("✅ Test 1: Clases derivadas calculan areas correctamente.");
+    Console.WriteLine("Test 1: OK - Areas correctas.");
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"❌ Test 1 Fallo: {ex.Message}");
+    Console.WriteLine($"Test 1 Fallo: {ex.Message}");
     fallos++;
 }
 
@@ -34,12 +36,12 @@ catch (Exception ex)
 try
 {
     new Circulo("Circulo Invalido", -2.0);
-    Console.WriteLine("❌ Test 2 Fallo: Permitio crear Circulo con radio negativo.");
+    Console.WriteLine("Test 2 Fallo: Permitio crear Circulo con radio negativo.");
     fallos++;
 }
 catch (ArgumentException)
 {
-    Console.WriteLine("✅ Test 2: Invariante defendido en clase derivada.");
+    Console.WriteLine("Test 2: OK - Validacion de radio correcto.");
 }
 
 // Test 3: Polimorfismo en coleccion heterogenea
@@ -60,11 +62,11 @@ try
 
     if (sumaAreas <= 0)
         throw new Exception("Error al procesar coleccion polimorfica.");
-    Console.WriteLine("✅ Test 3: Polimorfismo dinamico operando en coleccion heterogenea.");
+    Console.WriteLine("Test 3: OK - Polimorfismo en lista funcionando.");
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"❌ Test 3 Fallo: {ex.Message}");
+    Console.WriteLine($"Test 3 Fallo: {ex.Message}");
     fallos++;
 }
 
@@ -75,14 +77,37 @@ try
     string representacion = dibujable.Dibujar();
     if (string.IsNullOrWhiteSpace(representacion))
         throw new Exception("El metodo Dibujar() no devolvio representacion valida.");
-    Console.WriteLine("✅ Test 4: Contrato de interfaz IDibujable cumplido.");
+    Console.WriteLine("Test 4: OK - Interfaz IDibujable correcta.");
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"❌ Test 4 Fallo: {ex.Message}");
+    Console.WriteLine($"Test 4 Fallo: {ex.Message}");
     fallos++;
 }
 
-Console.WriteLine($"\nRESUMEN: {4 - fallos}/4 pruebas superadas.");
+Console.WriteLine($"\nResultado: {4 - fallos}/4 pruebas pasadas.");
 if (fallos == 0)
-    Console.WriteLine("🎉 Hito 2 acreditado a nivel de codigo.");
+{
+    Console.WriteLine("Hito 2 completado exitosamente.");
+}
+
+// Impresion de figuras solicitada
+Console.WriteLine("\n-------------------------------------------------");
+Console.WriteLine("             DIBUJO DE FIGURAS                   ");
+Console.WriteLine("-------------------------------------------------");
+
+List<FiguraGeometrica> listaFiguras = new List<FiguraGeometrica>
+{
+    new Circulo("Circulo Grafico", 5.0),
+    new Rectangulo("Rectangulo Grafico", 4.0, 6.0)
+};
+
+foreach (var f in listaFiguras)
+{
+    Console.WriteLine($"\nFigura: {f.Nombre} | Area: {f.CalcularArea():F2}");
+    if (f is IDibujable d)
+    {
+        Console.WriteLine(d.Dibujar());
+    }
+}
+Console.WriteLine("\n-------------------------------------------------");

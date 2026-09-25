@@ -2,30 +2,30 @@ namespace Hito1_Encapsulamiento;
 
 public class Persona
 {
-    private string nombre;
-    private int edad;
+    private string _nombre = string.Empty;
+    private int _edad;
 
     public string Nombre
     {
-        get => nombre;
-        set
+        get => _nombre;
+        private set
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("El nombre no puede estar vacio.");
 
-            nombre = value;
+            _nombre = value.Trim();
         }
     }
 
     public int Edad
     {
-        get => edad;
+        get => _edad;
         private set
         {
-            if (value < 0)
-                throw new ArgumentException("La edad no puede ser negativa.");
+            if (value < 0 || value > 125)
+                throw new ArgumentException("La edad debe estar entre 0 y 125 años.");
 
-            edad = value;
+            _edad = value;
         }
     }
 

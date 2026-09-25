@@ -72,7 +72,11 @@ El **Constructor** es un bloque de código especial que se ejecuta única y excl
 ---
 ### 5. Preguntas de Autoevaluación
 ¿Cuál es la diferencia exacta entre una Clase y un Objeto?
+R= Clase : Define qué datos atributos y qué acciones métodos tendrá un tipo de dato. No almacena datos reales.
+Objeto : Es el elemento real que creas usando el operador new. Tiene su propio estado con valores específicos en sus atributos.
 
 Si un objeto permite que su saldo sea negativo por descuido del programador, ¿qué principio de POO se violó?
+R¨=public decimal Saldo { get; set; }
 
 ¿Por qué un constructor debe rechazar valores erróneos en lugar de guardar un valor por defecto sin avisar?
+R= Porque corregir un error en silencio (por ejemplo, asignar 0 i envían un saldo o edad negativa) oculta los fallos de lógica del sistema y crea datos falsos.

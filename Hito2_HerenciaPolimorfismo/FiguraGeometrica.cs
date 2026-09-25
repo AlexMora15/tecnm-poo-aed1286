@@ -1,16 +1,20 @@
-namespace Hito2_HerenciaPolimorfismo;
+using System;
 
-public abstract class FiguraGeometrica
+
+namespace Hito2_HerenciaPolimorfismo
 {
-    public string Nombre { get; }
-
-    protected FiguraGeometrica(string nombre)
+    public abstract class FiguraGeometrica
     {
-        if (string.IsNullOrWhiteSpace(nombre))
-            throw new ArgumentException("El nombre de la figura es obligatorio.");
-        Nombre = nombre.Trim();
-    }
+        public string Nombre { get; }
 
-    public abstract double CalcularArea();
-    public abstract double CalcularPerimetro();
+        protected FiguraGeometrica(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre de la figura es obligatorio.");
+            Nombre = nombre.Trim();
+        }
+
+        public abstract double CalcularArea();
+        public abstract double CalcularPerimetro();
+    }
 }
