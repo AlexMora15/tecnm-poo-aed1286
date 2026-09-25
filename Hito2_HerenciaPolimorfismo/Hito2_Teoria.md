@@ -95,12 +95,13 @@ Diferencia crucial: Clase Abstracta vs. Interfaz
 ## 6. Preguntas de Autoevaluación
 1. Si una clase abstracta no se puede instanciar con new, ¿para qué sirve programarla?
 
-  Sirve como una plantilla para las clases que heredan de ella. Ahí se pueden poner las características y métodos que tienen en común. En este proyecto, `FiguraGeometrica` tiene el nombre de la figura y obliga a `Circulo` y `Rectangulo` a crear sus propios métodos `CalcularArea()` y `CalcularPerimetro()`. También permite guardar diferentes figuras usando el mismo tipo, como `FiguraGeometrica figura`.
+  Sirve como una plantilla para las clases que heredan de ella. Ahí se pueden poner las características y métodos que tienen en común. En este proyecto, FiguraGeometrica
+   R=tiene el nombre de la figura y obliga a Circulo y Rectangulo a crear sus propios métodos CalcularArea() y CalcularPerimetro(). También permite guardar diferentes figuras usando el mismo tipo, como FiguraGeometrica figura.
 
 2. ¿Por qué es una mala práctica abusar de condicionales if (tipo == "Circulo") en lugar de usar polimorfismo?
 
-  Porque el código se vuelve largo y difícil de mantener. Si después agregamos otra figura, tendríamos que agregar más condiciones y podríamos cometer errores. Con polimorfismo solo usamos `figura.CalcularArea()` y cada figura hace el cálculo que le corresponde. Así podemos recorrer una lista con círculos y rectángulos sin usar muchos `if`.
+  R= Porque el código se vuelve largo y difícil de mantener. Si después agregamos otra figura, tendríamos que agregar más condiciones y podríamos cometer errores. Con polimorfismo solo usamos figura.CalcularArea y cada figura hace el cálculo que le corresponde. Así podemos recorrer una lista con círculos y rectángulos sin usar muchos if.
 
 3. Da un ejemplo real donde dos objetos de familias totalmente distintas compartan la misma interfaz.
 
-  Un ejemplo sería un `Circulo` y un `BotonDePantalla`. El círculo es una figura geométrica y el botón es parte de una aplicación, pero los dos pueden implementar la interfaz `IDibujable` porque ambos tienen el método `Dibujar()`. De esta forma, el programa puede pedirles que se dibujen sin importar qué tipo de objeto son.
+  R=Un ejemplo sería un Circulo y un BotonDePantalla. El círculo es una figura geométrica y el botón es parte de una aplicación, pero los dos pueden implementar la interfaz IDibujable porque ambos tienen el método Dibujar. De esta forma, el programa puede pedirles que se dibujen sin importar qué tipo de objeto son.
